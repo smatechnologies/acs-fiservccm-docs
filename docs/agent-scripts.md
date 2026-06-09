@@ -25,7 +25,7 @@ ERROR=InvalidAccountStatus;RESULT=OK;TASKID=12,16,18
 
 ```
 where
-- **ERROR**  indicates the error to check for. This value is found in the Value field of the error message (i.e. <Message><DictionaryContents><Item><Key>ResponseCode</Key><Value>InvalidAccountStatus</Value></Item></DictionaryContents></Message> )
+- **ERROR**  indicates the error to check for. This value is found in the Value field of the error message (i.e. `<Message><DictionaryContents><Item><Key>ResponseCode</Key><Value>InvalidAccountStatus</Value></Item></DictionaryContents></Message>` )
 - **RESULT** is the end result if the error matches. OK means the job completion status will be changed from **Failed** to **Complete**.
 - **TASKID** indicates which FiservCCM tasks are affected by this. When TASKID= contains no values, then all tasks that contain the error will be changed to a **Complete** status. If TASKID=n,n,n contains values, then only those defined task ids will be changed to a **Complete** status.  
 
