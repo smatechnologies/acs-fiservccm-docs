@@ -1,48 +1,53 @@
 ---
-title: "ACS Fiserv CCM Connector Overview"
-description: "Overview of the ACS Fiserv CCM Connector for OpCon."
-sidebar_label: "Overview"
-tags:
-  - Conceptual
-  - System Administrator
-  - Automation Engineer
-doc_type: conceptual
+title: FiservCCM overview
+description: An overview of FiservCCM, including how the connector works within OpCon and the supported task types.
+tags: [type/conceptual, role/automation-engineer, role/system-administrator, feature/fiservCCM-acs]
+sidebar_label: 'Overview'
 ---
 
-# ACS Fiserv CCM Connector
+# Fiserv CCM Connector
 
 ## What is it?
 
-The ACS Fiserv CCM Connector is an OpCon connector for Fiserv CCM.
+The Fiserv CCM Connector is an OpCon connector for Fiserv CCM (Credit Card Management for DNA).
 
-<!--
-SME INPUT REQUIRED — Complete the "What is it?" section per the technical-writer
-primary-analysis template (§1):
-  1. Prose description (1–3 sentences): what the connector does and what problem
-     it solves for a first-time reader — which Fiserv CCM capabilities it automates
-     from OpCon, and what type of work it submits or monitors. (Also confirm the
-     full meaning of the "CCM" acronym for Fiserv's product.)
-  2. A bullet list (at least 2 bullets) of key use-case scenarios or benefits,
-     phrased from the reader's perspective.
-Source needed: connector product specification, README, or confirmation from the
-ACS Fiserv CCM Connector product/development team. Do not fabricate functional behavior.
--->
+The Integration was developed for the purpose of starting, monitoring and reporting on a scheduled task within Credit Card Management for DNA.
+ - Tasks are created and task parameters are configured in the CCM application. None are passed in by the integration.    
+ - This integration will start the CCM task by inserting a taskid (@task_nbr) into the SchTaskQue table in the CCM database.    
+ - A task user (@task_usr) is also passed in for audit purposes.     
+ - This task user is not validated against a user list, it is a string (up to 50 characters) used for auditing/reporting only.    
+
+![Overview](../static/img/overview.png)
+
+The integration consists of the ACS Fiserv CCM plugin, which communicates with the Fiserv CCM SQL Server database using the SQL CMD Client and SQL statements.
+The integration uses the SQLCMD.exe client to submit and monitor the execution of the stored procedure. 
+Once execution is complete, step history information is retrieved from the database (depends on which Severity options were selected for the task) and included in the OpCon JobLog. 
+The Error Severity option is always returned, but will only be included in the job log if the Error Severity option is selected or the task has an error condition.
+
+If an error condition occured **Error Checking** is invoked by checking the error returned during the step history information retrieval with error definitions in the Error Checking OpCon script. These definitions indicate whether an specific error condition can be marked as completed successfully. The major purpose for this functionality is to prevent workflows stopping with a recoiverable error condition.
+
+###Components
+**Fiserv CCM** plugin provides the link between the OpCon environment and the Fiserv CCM database.
+**Error Checking** OpCon script that contains information about recoeverable error conditions.
+**Stored Procedure** which is inserted into the Fiserv CCM database that the integration executes passing a task id.
+**SQL Server Client** the Microsoft SQL Server Client software that contains the SQLCMD.exe utility that it used to execute and monitor the status of the stored procedure.
+
+The plugin can be installed either within the OpCon file structure for On-Premises environments or within the SMARelay structures for OpCon Cloud environments. 
 
 ## FAQs
-
-<!--
-SME INPUT REQUIRED — Add at least 3 question-and-answer pairs reflecting real user
-questions (primary-analysis §10). Candidate topics, to confirm with the product team:
   - Which OpCon versions and which Fiserv CCM versions are supported?
+    Requires OpCon Cloud or OpCon OnPrem 26.0.x 
   - What credentials or connection details does the connector require?
+    Requires a valid database user.
+    Requires information about the target database and stored procedure to execute. 
   - How is the connector installed and licensed?
 Do not author answers until the supporting facts are confirmed by an SME.
 -->
 
 ## Glossary
 
-<!--
-SME INPUT REQUIRED — Define at least 2 terms specific to this connector or to Fiserv CCM
-(primary-analysis §12), using the format: **Term** — one or two sentence definition.
-Confirm each definition against authoritative Fiserv/OpCon documentation before adding.
--->
+**ACS** - Stands for Agentless Connection System which is a new framework provided by OpCon to support integrations. 
+**CCM** - Stands for Fiserv DNA Credit Card Management.
+**SQLCMD.exe** - Is part of the Microsoft SQL Server Client software which needs to be installed on the same server as the integration.
+**Stored Procedure** - Stored procedures are used to group one or more Transact-SQL statements into logical units. The stored procedure is stored as a named object in the SQL Server Database Server
+

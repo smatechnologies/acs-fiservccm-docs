@@ -1,44 +1,34 @@
 ---
-title: "ACS Fiserv CCM Connector Release Notes"
-description: "Version history and change details for the ACS Fiserv CCM Connector, including new features, improvements, and bug fixes."
-sidebar_label: "Release Notes"
+title: FiservCCM release notes
+description: Version history and change details for FiservCCM, including new features and improvements.
 tags:
-  - Reference
-  - System Administrator
-  - Agents
-doc_type: reference
+  - type/reference
+  - role/automation-engineer
+  - role/system-administrator
+  - feature/fiservCCM-acs
+sidebar_label: 'Release notes'
 ---
 
-# ACS Fiserv CCM Connector Release Notes
+# FiservCCM Connector Release Notes
 
-This page lists changes for each ACS Fiserv CCM Connector release, organized by version. Each entry is prefixed with one of the following indicators:
+This page lists changes for each FiservCCM Connector release, organized by version. 
 
-- :eight_spoked_asterisk: — New feature or enhancement
-- :white_check_mark: — Bug fix
+## 26
 
-<!--
-SME INPUT REQUIRED — Add a section per release using the format below (matching the
-opcon-docs and windows-agent-docs release notes). Do not fabricate versions, dates,
-ticket numbers, or change descriptions; populate from the connector's actual change
-log or release records.
+### 0.0
 
-Format template (remove this comment and replace with real entries):
-
-## <Major version>
-
-### <version>
-
-<Month Year>
+June 2026
 
 #### What's new
 
-:eight_spoked_asterisk: **TICKET-ID**: Description of the new feature or enhancement.
+:eight_spoked_asterisk: **CON-5**: Initial Release of FiservCCM intehration.
 
 #### Why this matters
 
-Plain-language explanation of the customer impact of the changes in this release.
+Provides additional capabilities specific to CCM integration not provided by using the generic SQL Agent.
+- includes a mechanism to determine if an error condition can be changed to **Finished OK** to prevent workflow stoppage for non-critical errors.
+- returns the Step History information if selected (Info, Warning, Error or Verbose) in the job log.
+- if an error condition occurs will always include the error information in the job log. 
 
 #### Fixes
 
-:white_check_mark: **TICKET-ID**: Description of the bug fix.
--->
