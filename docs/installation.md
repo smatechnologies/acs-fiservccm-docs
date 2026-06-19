@@ -26,4 +26,5 @@ Select the required version.
 - Cloud customers
   Copy the ACSFiservCCM directory to the \\Relay\\plugins directory
 
-
+## Stored Procedure
+The required stored procedure can be found in the **StoredProcedure** directory of the software distribution.

@@ -57,7 +57,7 @@ To define a Fiserv CCM task, complete the following steps:
     |---|---|
     | **ServeName\\Instance** | The name of the database server and instance if required |
     | **Database Name** | The name of the database |
-    | **SQL Statement** | The SQL Statement to submit for execution |
+    | **SQL Statement** | The SQL Statement to submit for execution (value EXEC CCM_ScheduleTaskV3 nn where nn is the task number to execute) |
     | **Authentication** | select a database user|
     | **Batch User** | Select a Fiserv CCM batch user from the drop-down list (user must have database privileges) |
     | **Step History** | Select which log types to retrieve. Note that Error log type is always retrieved and displayed if the task failed even if it is not selected |
