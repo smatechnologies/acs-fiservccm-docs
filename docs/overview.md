@@ -20,17 +20,17 @@ The Integration was developed for the purpose of starting, monitoring and report
 ![Overview](../static/img/overview.png)
 
 The integration consists of the ACS Fiserv CCM plugin, which communicates with the Fiserv CCM SQL Server database using the SQL CMD Client and SQL statements.
-The integration uses the SQLCMD.exe client to submit and monitor the execution of the stored procedure. 
-Once execution is complete, step history information is retrieved from the database (depends on which Severity options were selected for the task) and included in the OpCon JobLog. 
+The integration uses the SQLCMD.exe client to submit the stored procedure and monitor it as it runs. 
+Once the stored procedure finishes, step history information is retrieved from the database (depends on which Severity options were selected for the task) and included in the OpCon JobLog. 
 The Error Severity option is always returned, but will only be included in the job log if the Error Severity option is selected or the task has an error condition.
 
-If an error condition occured **Error Checking** is invoked by checking the error returned during the step history information retrieval with error definitions in the Error Checking OpCon script. These definitions indicate whether an specific error condition can be marked as completed successfully. The major purpose for this functionality is to prevent workflows stopping with a recoiverable error condition.
+If an error condition occurred **Error Checking** is invoked by checking the error returned during the step history information retrieval with error definitions in the Error Checking OpCon script. These definitions indicate whether a specific error condition can be marked as completed successfully. The major purpose for this functionality is to prevent workflows stopping with a recoverable error condition.
 
 ### Components
 **Fiserv CCM** plugin provides the link between the OpCon environment and the Fiserv CCM database.
-**Error Checking** OpCon script that contains information about recoeverable error conditions.
-**Stored Procedure** which is inserted into the Fiserv CCM database that the integration executes passing a task id.
-**SQL Server Client** the Microsoft SQL Server Client software that contains the SQLCMD.exe utility that it used to execute and monitor the status of the stored procedure.
+**Error Checking** OpCon script that contains information about recoverable error conditions.
+**Stored Procedure** which is inserted into the Fiserv CCM database that the integration runs, passing a task id.
+**SQL Server Client** the Microsoft SQL Server Client software that contains the SQLCMD.exe utility used to run and monitor the status of the stored procedure.
 
 The plugin can be installed either within the OpCon file structure for On-Premises environments or within the SMARelay structures for OpCon Cloud environments. 
 
