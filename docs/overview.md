@@ -26,7 +26,7 @@ The Error Severity option is always returned, but will only be included in the j
 
 If an error condition occured **Error Checking** is invoked by checking the error returned during the step history information retrieval with error definitions in the Error Checking OpCon script. These definitions indicate whether an specific error condition can be marked as completed successfully. The major purpose for this functionality is to prevent workflows stopping with a recoiverable error condition.
 
-###Components
+### Components
 **Fiserv CCM** plugin provides the link between the OpCon environment and the Fiserv CCM database.
 **Error Checking** OpCon script that contains information about recoeverable error conditions.
 **Stored Procedure** which is inserted into the Fiserv CCM database that the integration executes passing a task id.
@@ -34,6 +34,7 @@ If an error condition occured **Error Checking** is invoked by checking the erro
 
 The plugin can be installed either within the OpCon file structure for On-Premises environments or within the SMARelay structures for OpCon Cloud environments. 
 
+<!--
 ## FAQs
   - Which OpCon versions and which Fiserv CCM versions are supported?
     Requires OpCon Cloud or OpCon OnPrem 26.0.x 
