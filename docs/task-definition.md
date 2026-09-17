@@ -50,7 +50,7 @@ To define a Fiserv CCM task, complete the following steps:
 6. In the **Job Type** field, select **Fiserv CCM** from the list.
 7. In the **Task Type** field, select **Execute** from the list.
 8. Select the **Task Details** button.
-9. In the **Integration Selection** section, select the Kubernetes agent previously defined.
+9. In the **Integration Selection** section, select the agent previously defined.
 10. In the **Task Configuration** section, complete the following fields:
 
     | Field | Description |
