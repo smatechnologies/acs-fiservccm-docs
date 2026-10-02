@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Batch Users'
-title: Define FiserCCM batch users
+title: Define FiservCCM batch users
 description: "Instructions for creating the OpCon batch users required by the FiservCCM connector for SQL Server authentication."
 tags:
   - Procedural
@@ -28,9 +28,9 @@ To define FiservCCM batch users, complete the following steps:
 2.  From the Home page select **Library**.
 3.  From the **Security** menu select **Batch Users**.
 4.  Select **+Add** to add a new Batch User.
-5.  Select **Fiserv CCM** from the **Select the target OS** list.
-6.  Enter the User name that will be used to create the token in the **Identifier** field.
-7.  Enter the password of the defined API User in the **Password** and **Confirm** fields.
+5.  Select **Fiserv CCM** from the **Select the OS** list.
+6.  In the **Identifier** field, enter the SQL Server login name the connector signs in with.
+7.  Enter the password of that SQL Server login in the **Password** and **Confirm Password** fields.
 8.  Select **Save**.
 
 Repeat for each required batch user.

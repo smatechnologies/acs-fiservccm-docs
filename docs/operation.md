@@ -1,6 +1,6 @@
 ---
 title: FiservCCM Operation
-description: "Reference information for operating the FiservCCm connector, including Solution Manager requirements, prerequisites, and agent activation."
+description: "Reference information for operating the FiservCCM connector, including Solution Manager requirements, prerequisites, and agent activation."
 tags: [type/procedural, role/automation-engineer, feature/fiservCCM-acs]
 sidebar_label: 'Operation'
 ---
@@ -27,7 +27,7 @@ To configure agent and task definitions, the associated Batch Users and Error Ch
 
 ## Agent activation
 
-To activate the agent, place the agent in an active state.
+To activate the agent, select the **Change Communication Status** button on the agent definition and select **Enable Full Comm**. See [Agent definition](./agent-definition.md).
 
 ## FAQs
 
