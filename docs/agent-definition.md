@@ -18,7 +18,7 @@ tags:
 
 Before OpCon can submit jobs to the Fiserv CCM database, you must define two objects in Solution Manager: a FiservCCM script that contains the error checking information, and an agent definition that references that script.
 
-- Use agent-scripts.md to assist with creating the error checking script. 
+- Use [Scripts](./agent-scripts.md) to assist with creating the error checking script. 
 
 All definitions are performed in Solution Manager.
 
@@ -38,8 +38,8 @@ To define the agent, complete the following steps:
 6. Select **General Settings**.
 7. Verify that the **NetCom Name** field is set to **Default**, or enter the name of the SMA Relay if a relay is in use.
 8. Select **Fiserv CCM Settings**.
-9. In the **Error Check Script** section, select the script that contains the `error checking` information.
-10. In the **Retain Log files** field, enter the number of days to retain log files.
+9. In the **Error Check Script** section, select the **Script Runner**, the **Script** that contains the `error checking` information, and the **Script Version**.
+10. In the **Retain Log Files** field, enter the number of days to retain log files. The field is required and defaults to 30. Each time a job finishes, log and error checking files older than this are deleted from the `jobOutput\Fiserv CCM` folder under the plugin's directory.
 11. Select the **Save** button.
 12. Select **Communication Settings**.
 13. Verify that the **Requires XML Escape Sequences: User-Defined** field is set to **True**. If it is not, set it to **True** and select the **Save** button.
@@ -49,9 +49,6 @@ To define the agent, complete the following steps:
 
 **What does the NetCom Name field control?**  
 The **NetCom Name** field determines which OpCon communication channel the agent uses. Use **Default** for standard on-premises deployments. If your environment routes agent communication through a named relay, enter the relay name here.
-
-**Why must XML escape sequences be enabled?**  
-Kubernetes job definitions include YAML content that contains characters such as `<`, `>`, and `&` that must be escaped when transmitted through the OpCon communication protocol. Enabling this setting ensures those characters are transmitted correctly.
 
 ## Glossary
 

@@ -21,14 +21,12 @@ June 2026
 
 #### What's new
 
-:eight_spoked_asterisk: **CON-5**: Initial Release of FiservCCM intehration.
+:eight_spoked_asterisk: **CON-5**: Initial Release of FiservCCM integration.
 
 #### Why this matters
 
 Provides additional capabilities specific to CCM integration not provided by using the generic SQL Agent.
 - includes a mechanism to determine if an error condition can be changed to **Finished OK** to prevent workflow stoppage for non-critical errors.
 - returns the Step History information if selected (Info, Warning, Error or Verbose) in the job log.
-- if an error condition occurs will always include the error information in the job log. 
-
-#### Fixes
+- if an error condition occurs, always includes the error information in the job log.
 

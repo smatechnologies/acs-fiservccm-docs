@@ -10,13 +10,13 @@ sidebar_label: 'Installation'
 ## Requirements
 
 - OpCon Cloud or OpCon version 26.0.x or greater.
-- Microsoft SQL Client installed on server.
-- insert the CCM_ScheduleTaskV3.sql stored procedure into the Fiserv CCM database.
+- The Microsoft SQLCMD utility installed on the server that runs SMANetCom (on-premises) or the relay (OpCon Cloud). The connector starts `SqlCmd.exe` by name, so it must be on the path of that service.
+- Insert the CCM_ScheduleTaskV3.sql stored procedure into the Fiserv CCM database.
 
 ## Installation
 
 Download the FiservCCM software from the SMA FTP Site.
-Location will be in
+The software is in
 **/OpCon Releases/Integrations/FiservCCM/** 
 Select the required version.
 
